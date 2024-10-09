@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import { API_KEY } from "../../config";
 
 const HomeScreen = () => {
   const navigation = useNavigation(); // Get navigation prop
@@ -22,19 +23,19 @@ const HomeScreen = () => {
   // Fetch movie and series data
   useEffect(() => {
     const fetchPopularMovies = fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=e79996876b36e8dfd62075b6c25533be"
+      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => setPopularMovies(data.results));
 
     const fetchTrendingMovies = fetch(
-      "https://api.themoviedb.org/3/trending/movie/week?api_key=e79996876b36e8dfd62075b6c25533be"
+    `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => setTrendingMovies(data.results));
 
     const fetchTrendingSeries = fetch(
-      "https://api.themoviedb.org/3/trending/tv/week?api_key=e79996876b36e8dfd62075b6c25533be"
+      `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => setTrendingSeries(data.results));
