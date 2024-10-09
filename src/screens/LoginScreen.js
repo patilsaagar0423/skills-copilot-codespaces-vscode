@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, TextInput, View, Button } from 'react-native';
-
-// create LoginScreen component
-import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 
+// create LoginScreen component
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
