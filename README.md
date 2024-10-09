@@ -1,94 +1,79 @@
-<header>
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-<!--
-  <<< Author notes: Course header >>>
-  Read <https://skills.github.com/quickstart> for more information about how to build courses using this template.
-  Include a 1280×640 image, course name in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Next to "About", add description & tags; disable releases, packages, & environments.
-  Add your open source license, GitHub uses the MIT license.
--->
+# Getting Started
 
-# Code with GitHub Copilot
+>**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-_GitHub Copilot can help you code by offering autocomplete-style suggestions right in VS Code and Codespaces._
+## Step 1: Start the Metro Server
 
-</header>
+First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
+To start Metro, run the following command from the _root_ of your React Native project:
 
-## Step 1: Leverage Codespaces with VS Code for Copilot
+```bash
+# using npm
+npm start
 
-_Welcome to "Develop With AI Powered Code Suggestions Using GitHub Copilot and VS Code"! :wave:_
+# OR using Yarn
+yarn start
+```
 
-GitHub Copilot is an AI pair programmer that helps you write code faster and with less work. It draws context from comments and code to suggest individual lines and whole functions instantly. GitHub Copilot is powered by OpenAI Codex, a generative pretrained language model created by OpenAI.
+## Step 2: Start your Application
 
-**Copilot works with many code editors including VS Code, Visual Studio, JetBrains IDE, and Neovim.**
+Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
-Additionally, GitHub Copilot is trained on all languages that appear in public repositories. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language.
+### For Android
 
-Using Copilot inside a Codespace shows just how easy it is to get up and running with GitHub's suite of [Collaborative Coding](https://github.com/features#features-collaboration) tools.
+```bash
+# using npm
+npm run android
 
-> **Note**
-> This skills exercise will focus on leveraging GitHub Codespace. It is recommended that you complete the GitHub skill, [Codespaces](https://github.com/skills/code-with-codespaces), before moving forward with this exercise.
+# OR using Yarn
+yarn android
+```
 
-### :keyboard: Activity: Enable Copilot inside a Codespace
+### For iOS
 
-**We recommend opening another browser tab to work through the following activities so you can keep these instructions open for reference.**
+```bash
+# using npm
+npm run ios
 
-Before you open up a codespace on a repository, you can create a development container and define specific extensions or configurations that will be used or installed in your codespace. Let's create this development container and add copilot to the list of extensions.
+# OR using Yarn
+yarn ios
+```
 
-1. Navigating back to your **Code** tab of your repository, click the **Add file** drop-down button, and then click `Create new file`.
-1. Type or paste the following in the empty text field prompt to name your file.
-   ```
-   .devcontainer/devcontainer.json
-   ```
-1. In the body of the new **.devcontainer/devcontainer.json** file, add the following content:
-   ```
-   {
-       // Name this configuration
-       "name": "Codespace for Skills!",
-       "customizations": {
-           "vscode": {
-               "extensions": [
-                   "GitHub.copilot"
-               ]
-           }
-       }
-   }
-   ```
-1. Select the option to **Commit directly to the `main` branch**, and then click the **Commit new file** button.
-1. Navigate back to the home page of your repository by clicking the **Code** tab located at the top left of the screen.
-1. Click the **Code** button located in the middle of the page.
-1. Click the **Codespaces** tab on the box that pops up.
-1. Click the **Create codespace on main** button.
+If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-   **Wait about 2 minutes for the codespace to spin itself up.**
+This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-1. Verify your codespace is running. The browser should contain a VS Code web-based editor and a terminal should be present such as the below:
-   ![Screen Shot 2023-03-09 at 9 09 07 AM](https://user-images.githubusercontent.com/26442605/224102962-d0222578-3f10-4566-856d-8d59f28fcf2e.png)
-1. The `copilot` extension should show up in the VS Code extension list. Click the extensions sidebar tab. You should see the following:
-   ![Screen Shot 2023-03-09 at 9 04 13 AM](https://user-images.githubusercontent.com/26442605/224102514-7d6d2f51-f435-401d-a529-7bae3ae3e511.png)
+## Step 3: Modifying your App
 
-**Wait about 60 seconds then refresh your repository landing page for the next step.**
+Now that you have successfully run the app, let's modify it.
 
-<footer>
+1. Open `App.tsx` in your text editor of choice and edit some lines.
+2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
----
+## Congratulations! :tada:
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/code-with-copilot) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+You've successfully run and modified your React Native App. :partying_face:
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+### Now what?
 
-</footer>
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
+- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+
+# Troubleshooting
+
+If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+# Learn More
+
+To learn more about React Native, take a look at the following resources:
+
+- [React Native Website](https://reactnative.dev) - learn more about React Native.
+- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
+- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
+- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
