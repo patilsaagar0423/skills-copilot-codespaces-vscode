@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TextInput, View, Button } from 'react-native';
 
 // create LoginScreen component
+import React, { useState } from 'react';
+import { SafeAreaView, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+
 const LoginScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -15,7 +18,7 @@ const LoginScreen = ({ navigation }) => {
     const validatePassword = (password) => {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*\s).{8,}$/;
         return passwordRegex.test(password);
-    }
+    };
 
     const handleLogin = () => {
         if (!validateEmail(email)) {
@@ -28,55 +31,108 @@ const LoginScreen = ({ navigation }) => {
         }
     };
 
-    // want to design NETFLIX login page with email and password input fields with bottom red line and a login button in red  and  NETFLIX at the top of the page and watch TV shows & movies. Anywhere. Anytime as subtitle
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.title}>NETFLIX</Text>
-            <Text style={styles.subtitle}>
-                Watch TV shows & movies. Anywhere. Anytime.
-            </Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-                value={email}
-                onChangeText={setEmail}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry={true}
-            />
+            <Text style={styles.subtitle}>Watch TV shows & movies. Anywhere. Anytime.</Text>
+            <View style={styles.inputContainer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Username"
+                    placeholderTextColor="#888"
+                    value={email}
+                    onChangeText={setEmail}
+                />
+                <View style={styles.inputLine} />
+            </View>
+            <View style={styles.inputContainer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Password"
+                    placeholderTextColor="#888"
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry={true}
+                />
+                <View style={styles.inputLine} />
+            </View>
             {error ? <Text style={styles.error}>{error}</Text> : null}
-            <Button title="Login" onPress={handleLogin} />
-            <Button title="Sign Up" onPress={() => navigation.navigate("SignUp")} />
+            <Text style={styles.forgotPassword}>Forgot password?</Text>
+            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+                <Text style={styles.loginButtonText}>Log In</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.signUpButton} onPress={() => navigation.navigate("SignUp")}>
+                <Text style={styles.signUpButtonText}>Sign Up</Text>
+            </TouchableOpacity>
         </SafeAreaView>
-    );    
-}
+    );
+};
 
 const styles = StyleSheet.create({
-    container: { 
-        flex: 1, 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        padding: 16 
+    container: {
+        flex: 1,
+        backgroundColor: '#000',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 16,
     },
-    input: { 
-        height: 40, 
-        borderColor: 'gray', 
-        borderWidth: 1, 
-        width: '80%', 
-        marginBottom: 12, 
-        paddingHorizontal: 8 
+    title: {
+        fontSize: 48,
+        color: 'red',
+        fontWeight: 'bold',
+        marginBottom: 8,
     },
-    error: { 
-        color: 'red', 
-        marginBottom: 12 
+    subtitle: {
+        fontSize: 16,
+        color: '#ffffff',
+        marginBottom: 32,
     },
-    title: { 
-        fontSize: 24, 
-        marginBottom: 16 
+    inputContainer: {
+        width: '80%',
+        marginBottom: 16,
+    },
+    input: {
+        height: 40,
+        color: '#ffffff',
+        fontSize: 16,
+    },
+    inputLine: {
+        height: 1,
+        backgroundColor: 'red',
+    },
+    error: {
+        color: 'red',
+        marginBottom: 12,
+    },
+    forgotPassword: {
+        color: '#ffffff',
+        fontSize: 14,
+        marginTop: 8,
+        marginBottom: 32,
+    },
+    loginButton: {
+        width: '80%',
+        backgroundColor: 'red',
+        paddingVertical: 12,
+        alignItems: 'center',
+        borderRadius: 4,
+        marginBottom: 16,
+    },
+    loginButtonText: {
+        color: '#ffffff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    signUpButton: {
+        width: '80%',
+        backgroundColor: 'gray',
+        paddingVertical: 12,
+        alignItems: 'center',
+        borderRadius: 4,
+    },
+    signUpButtonText: {
+        color: '#ffffff',
+        fontSize: 18,
     },
 });
 
